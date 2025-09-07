@@ -189,7 +189,7 @@ prelim.post('/add_pet', async (req, res) => {
         res.redirect('/pet_success');
 
     } catch (error) {
-let errorMessage = 'Failed to add pet.';
+        let errorMessage = 'Failed to add pet.';
         
         if (error.response?.data?.message) {
             errorMessage = error.response.data.message;
@@ -197,7 +197,6 @@ let errorMessage = 'Failed to add pet.';
             errorMessage = error.message;
         }
 
-        // Render the form again with error message and previous values
         res.render('add_pet', {
             errorMessage,
             ownerId,
@@ -208,8 +207,46 @@ let errorMessage = 'Failed to add pet.';
 });
 
 prelim.get('/pet_success', (req, res) => {
-    const message = req.session.petMessage || '';
+    const message = req.session.fifthMessage || '';
     res.render('pet_success', { message });
+});
+
+prelim.get('/view_pet', async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        const code = req.session.code;
+
+        if (!userId || !code) {
+            return res.redirect('/login');
+        }
+
+        const response = await axios.get(`https://prelim-exam.onrender.com/users/${userId}/pets`, {
+            headers: { 'Authorization-Code': code }
+        });
+        
+        const data = response.data;
+        const pets = data.pets || [];
+        const message = data.message || '';
+
+        res.render('view_pet', {
+            message: message,
+            pets: pets
+        });
+
+    } catch (error) {
+        let errorMessage = 'Failed to fetch pets.';
+        
+        if (error.response?.data?.message) {
+            errorMessage = error.response.data.message;
+        } else if (error.message) {
+            errorMessage = error.message;
+        }
+
+        res.render('view_pet', {
+            message: errorMessage,
+            pets: []
+        });
+    }
 });
 
 const PORT = 5000;
