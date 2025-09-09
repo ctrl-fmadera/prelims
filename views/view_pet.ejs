@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preliminary Exam </title>
-    
+    <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <div class="container">
     <h1>My Pets</h1>
 
     <% pets.forEach(function(pet) { %>
-            <div>Pet Name: <%= pet.name %></div>
-            <div>Type: <%= pet.type %></div>
-        <% }); %>
+        Pet Name: <%= pet.name %>
+        Type: <%= pet.type %>
+    <% }); %>
 
-    <%= message %><br />
+    <p><%= message %></p><br />
 
     <a href="/all_pets"><button>View All Pets</button></a>
+    </div>
 </body>
 </html>

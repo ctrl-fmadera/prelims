@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <div class="container">
     <h1>Pet added successfully!</h1>
-    <p>let's view your pet!<p>
-    <%= message %><br />
+    <h3>let's view your pet!<h3>
+    <p><%= message %></p><br />
+    <p>Pet ID: <%= pet.petId %><p>
     <a href="/view_pet"><button>Proceed</button></a>
+    </div>
 </body>
 </html>

@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+    <div class="container">
+    <h1>All Pets</h1>
+
+    <% if (editRoleMessage) { %>
+        <p><%= editRoleMessage %></p>
+    <% } else if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+
+    <% if (message || editRoleMessage) { %>
+        <form action="/edit_role" method="GET" style="display:inline;">
+            <button type="submit">Edit Role</button>
+        </form>
+    <% } %>
+
+    <form action="/all_pets" method="POST">
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId" name="userId" value="<%= userId %>" required />
+        <button type="submit">Get Pets</button>
+    </form>
+    </div>
 </body>
 </html>

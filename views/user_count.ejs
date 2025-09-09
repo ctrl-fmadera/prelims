@@ -8,10 +8,13 @@
 </head>
 <body>
     <div class="container">
-    <h1>Logged in Successfully!</h1>
-    <h3>but you're still not done....</h3>
-    <p><%= message %></p>
-    <a href="/update_username"><button>Proceed</button></a>
+    <h1>User Count</h1>
+    
+        <p><%= message %></p><br />
+
+    <form method="POST" action="logout">
+        <button>Log Out</button>
+    </form>
     </div>
 </body>
 </html>

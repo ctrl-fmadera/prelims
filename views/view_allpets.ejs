@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+    <h1>View All Pets</h1>
+
+    <% if (message && success) { %>
+        <div>
+            <%= message %>
+        </div>
+    <% } %>
+
+    <% if (message && !success) { %>
+        <div>
+            <%= message %>
+        </div>
+    <% } %>
+
+    <% if (fetchError) { %>
+        <div>
+            Error: <%= fetchError %>
+        </div>
+    <% } %>
+
+    <a href="/pet_count"><button>View Pet Count</button></a>
+
+
+    <% if (pets && pets.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pet Name</th>
+                    <th>Pet Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pets.forEach(pet => { %>
+                    <tr>
+                        <td><%= pet.name || 'N/A' %></td>
+                        <td><%= pet.type || 'N/A' %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else if (userId) { %>
+        <div>
+            No pets found for this user.
+        </div>
+    <% } %>
+    </div>
+
+</body>
+</html>

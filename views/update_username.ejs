@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Preliminary Exam</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="container">
     <h1>Create a new username!</h1>
-    <p>preferably something creative..</p>
+    <h3>preferably something creative..</h3>
     <form method="POST" action="/update_username" >
         <label for="newUsername">New Username:</label>
         <input type="text" id="newUsername" name="username" required />
         <button type="submit">Update Username</button>
     </form>
-
+  </div>
 </body>
 </html>

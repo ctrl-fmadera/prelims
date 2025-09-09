@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>  
+    <div class="container">
     <h1>Log In</h1>
     <% if (errorMessage) { %>
-        <p style="color: red;"><%= errorMessage %></p>
+        <p><%= errorMessage %></p>
     <% } %>
     
     <form method="POST" action="/login">
@@ -26,7 +28,8 @@
             </label><br/>
         <% } %>
 
-        <a href="/login_success"><button type="submit"><%= authKeyRequired ? 'Submit Authentication Key' : 'Log In' %></button></a>
+        <br /><a href="/login_success"><button type="submit"><%= authKeyRequired ? 'Submit Authentication Key' : 'Log In' %></button></a>
     </form>
+    <div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+    <h1>Shh.. don't tell anyone about this!</h1>
+
+    <% if (editRoleMessage) { %>
+        <%= editRoleMessage %>
+    <% } %>
+
+    <% if (showEditRole && userId) { %>
+        <h3>Edit User Role</h3>
+        <form method="POST" action="/edit_role">
+            <input type="hidden" name="userId" value="<%= userId %>">
+            
+            <label for="newRole">New Role:</label>
+            <select name="newRole" id="newRole" required>
+                <option value="">Select a role</option>
+                <option value="vet">vet</option>
+                <option value="admin">admin</option>
+                <option value="faculty">faculty</option>
+                <option value="backend">backend</option>
+            </select>
+            
+            <button type="submit">Update Role</button>
+        </form>
+        <hr>
+    <% } else { %>
+        <p>No user selected for role editing.</p>
+    <% } %>
+
+    <br>
+    <a href="/view_allpets"> View Pets</a>
+    </div>
+</body>
+</html> 

@@ -8,10 +8,17 @@
 </head>
 <body>
     <div class="container">
-    <h1>Logged in Successfully!</h1>
-    <h3>but you're still not done....</h3>
-    <p><%= message %></p>
-    <a href="/update_username"><button>Proceed</button></a>
+    <h1>Pet Count Statistics</h1>
+
+    <% if (success) { %>
+        <p><%= message %></p>
+    <% } else { %>
+        <p><%= message %></p>
+    <% } %>
+
+    <form action="/delete_pet" method="DELETE">
+        <button type="submit">Delete Pet</button>
+    </form>
     </div>
 </body>
 </html>

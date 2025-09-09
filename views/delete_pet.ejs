@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preliminary Exam</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+    <% if (deleteMessage && deleteSuccess) { %>
+            <p><%= deleteMessage %></p>
+    <% } %>
+
+    <% if (deleteMessage && !deleteSuccess) { %>
+            <p><%= deleteMessage %></p>
+    <% } %>
+
+    <% if (errorMessage) { %>        
+            <p><%= errorMessage %></p>
+    <% } %>
+
+    <a href="/check_age">
+        <button>Check Age Statistics</button>
+    </a>
+</div>
+</body>
+</html>
